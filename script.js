@@ -87,9 +87,42 @@
     });
   }
 
+  // Card hover video preview (play on hover, pause on leave)
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.card-media').forEach(media => {
+    const video = media.querySelector('.preview');
+    if (!video) return;
+    // Ensure correct playback flags regardless of markup
+    video.muted = true;
+    video.playsInline = true;
+    video.loop = true;
+    let playing = false;
+    const playVideo = async () => {
+      if (prefersReducedMotion) return; // respect user setting
+      try {
+        // Reset to start for consistent preview
+        if (video.currentTime > 0.1) video.currentTime = 0;
+        await video.play();
+        playing = true;
+      } catch (e) {
+        // Some browsers require a user gesture; silently ignore
+      }
+    };
+    const stopVideo = () => {
+      if (!playing) return;
+      video.pause();
+      video.currentTime = 0;
+      playing = false;
+    };
+    media.addEventListener('pointerenter', playVideo);
+    media.addEventListener('pointerleave', stopVideo);
+    // Fallback for mouseenter/leave if pointer events not supported
+    media.addEventListener('mouseenter', playVideo);
+    media.addEventListener('mouseleave', stopVideo);
+  });
+
   // Parallax effect for hero
   const hero = document.querySelector('.hero');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (hero && !prefersReducedMotion){
     hero.addEventListener('mousemove', (e)=>{
       const r = hero.getBoundingClientRect();
