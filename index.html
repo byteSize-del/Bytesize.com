@@ -1,59 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>BYTE SIZE — Building the Future</title>
+    <title>Volt — Futuristic Landing</title>
     <link rel="stylesheet" href="index.css" />
-</head>
-<body>
-    <div class="decorative-rect"></div>
+  </head>
+  <body>
     <header class="branding">
-        <a class="logo" href="index.html" aria-label="BYTE SIZE Home">
-            <img src="logo.svg" alt="BYTE SIZE logo" />
-        </a>
-        <div class="title"><h1>BYTE SIZE</h1></div>
-        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-            <span></span><span></span><span></span>
-        </button>
+      <a class="logo" href="#home" aria-label="Volt Home">
+        <img src="assets/logo.svg" alt="Volt logo" />
+      </a>
+      <div class="title"><h1>BYTE SIZE</h1></div>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </header>
 
     <nav class="navigation" id="nav">
-        <a href="index.html">Home</a>
-        <a href="features.html">Features</a>
-        <a href="projects.html">Projects</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+      <a href="index.html#home">Home</a>
+  <a href="features.html">Features</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
 
     <main>
-        <section id="home" class="hero">
-            <div class="hero-inner">
-                <h1>Building the Future,<br>One Project at a Time</h1>
-                <p>Full-stack developer & designer crafting innovative digital experiences with cutting-edge technology.</p>
-                <div class="cta">
-                    <a href="projects.html" class="btn primary">View Projects →</a>
-                    <a href="contact.html" class="btn secondary">Get in Touch</a>
-                </div>
-                <div class="social-links">
-                    <a href="https://github.com/byteSize-del" class="icon-btn" aria-label="GitHub Profile" target="_blank" rel="noopener">
-                        <img src="assets/github.svg" alt="GitHub">
-                    </a>
-                    <a href="#" class="icon-btn" aria-label="LinkedIn Profile" target="_blank" rel="noopener">
-                        <img src="assets/linkedin.svg" alt="LinkedIn">
-                    </a>
-                    <a href="contact.html" class="icon-btn" aria-label="Send an Email">
-                        <img src="assets/mail.svg" alt="Email">
-                    </a>
-                </div>
-            </div>
-        </section>
+      <section id="home" class="hero">
+        <div class="hero-inner reveal">
+          <h2>Future-ready experiences</h2>
+          <p>Design that glows, performance that flows, and interactions that feel alive.</p>
+          <div class="cta">
+            <a href="#features" class="btn primary">Explore Features</a>
+            <a href="#contact" class="btn secondary">Get in Touch</a>
+          </div>
+        </div>
+        <div class="grid-bg" aria-hidden="true"></div>
+      </section>
+
+      <section id="features" class="features">
+        <h3 class="section-title reveal">Social Media</h3>
+        <div class="cards">
+          <article class="card reveal">
+            <h4>YOUTUBE</h4>
+            <p>Engaging video content that captivates and informs.</p>
+            <a class="btn secondary" href="http://www.youtube.com/@ByteSize-01" target="_blank" rel="noopener" aria-label="Open YouTube channel in new tab">Visit YouTube</a>
+          </article>
+          <article class="card reveal">
+            <h4>INSTAGRAM</h4>
+            <p>Visually stunning posts that engage and inspire.</p>
+            <a class="btn secondary" href="https://www.instagram.com/_byte_size_del/?hl=en" target="_blank" rel="noopener" aria-label="Open Instagram profile in new tab">Visit Instagram</a>
+          </article>
+          <article class="card reveal">
+            <h4>GitHub</h4>
+            <p>Collaborative code repositories that foster innovation.</p>
+            <a class="btn secondary" href="https://github.com/byteSize-del" target="_blank" rel="noopener" aria-label="Open GitHub profile in new tab">Visit GitHub</a>
+          </article>
+        </div>
+      </section>
+
+      
     </main>
 
     <footer class="footer">
-        <p>© <span id="year"></span> BYTE SIZE. All rights reserved.</p>
+      <p>© <span id="year"></span> Volt. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
-</body>
-</html>
+  </body>
+  </html>
