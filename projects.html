@@ -1,60 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Projects — BYTE SIZE</title>
-    <link rel="stylesheet" href="index.css" />
-  </head>
-  <body>
-    <header class="branding">
-      <a class="logo" href="index.html#home" aria-label="Home">
-        <img src="logo.svg" alt="Logo">
-      </a>
-      <div class="title"><h1>BYTE SIZE</h1></div>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </header>
 
-    <nav class="navigation" id="nav">
-      <a href="index.html#home">Home</a>
-  <a href="features.html">Features</a>
-      <a href="projects.html" aria-current="page">Projects</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects — BYTE SIZE</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
 
-    <main>
-      <section class="features" style="padding-top: 32px;">
-        <h2 class="section-title reveal">Projects</h2>
-        <div class="cards">
-          <article class="card reveal">
-            <h4>Neon Portfolio</h4>
-            <p>A glowing personal portfolio with smooth scroll and reveal animations.</p>
-          </article>
-          <article class="card reveal">
-            <h4>AI Helper UI</h4>
-            <p>A clean, fast UI template for chat-based assistants and tools.</p>
-          </article>
-          <article class="card reveal">
-            <h4>Micro SaaS Landing</h4>
-            <p>Conversion-optimized landing page with modern, futuristic styling.</p>
-          </article>
-          <article class="card reveal">
-            <h4>Dashboard Concept</h4>
-            <p>Cards, charts, and responsive layout with focus on clarity and speed.</p>
-          </article>
-        </div>
-      </section>
-    </main>
+<body>
+  <header class="branding">
+    <a class="logo" href="index.html#home" aria-label="Home">
+      <img src="logo.svg" alt="Logo">
+    </a>
+    <div class="title">
+      <h1>BYTE SIZE</h1>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
 
-    <footer class="footer">
-      <p>© <span id="year"></span> BYTE SIZE. All rights reserved.</p>
-    </footer>
+  <nav class="navigation" id="nav">
+    <a href="index.html#home">Home</a>
+    <a href="features.html">Features</a>
+    <a href="projects.html" aria-current="page">Projects</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-    <script src="script.js"></script>
-  </body>
+  <main>
+    <section class="features" style="padding-top: 32px;">
+      <h2 class="section-title reveal">Projects</h2>
+      <div class="cards">
+        <article class="card reveal">
+          <a class="card-media" href="https://example.com/neon-portfolio" target="_blank" rel="noopener">
+            <img class="poster" src="assets/card-poster.svg" alt="Neon Portfolio preview" loading="lazy" />
+            <video class="preview" src="assets/project1.mp4" muted playsinline preload="metadata"></video>
+          </a>
+          <h4>Neon Portfolio</h4>
+          <p>A glowing personal portfolio with smooth scroll and reveal animations.</p>
+          <div class="card-actions">
+            <a class="btn primary" href="https://example.com/neon-portfolio" target="_blank" rel="noopener">Visit
+              site</a>
+            <a class="btn secondary" href="assets/neon-portfolio.zip" download>Download</a>
+          </div>
+        </article>
+        <article class="card reveal">
+          <a class="card-media" href="https://example.com/ai-helper-ui" target="_blank" rel="noopener">
+            <img class="poster" src="assets/card-poster.svg" alt="AI Helper UI preview" loading="lazy" />
+            <video class="preview" src="assets/project2.mp4" muted playsinline preload="metadata"></video>
+          </a>
+          <h4>AI Helper UI</h4>
+          <p>A clean, fast UI template for chat-based assistants and tools.</p>
+          <div class="card-actions">
+            <a class="btn primary" href="https://example.com/ai-helper-ui" target="_blank" rel="noopener">Visit site</a>
+            <a class="btn secondary" href="assets/ai-helper-ui.zip" download>Download</a>
+          </div>
+        </article>
+        <article class="card reveal">
+          <a class="card-media" href="https://example.com/micro-saas-landing" target="_blank" rel="noopener">
+            <img class="poster" src="assets/card-poster.svg" alt="Micro SaaS preview" loading="lazy" />
+            <video class="preview" src="assets/project3.mp4" muted playsinline preload="metadata"></video>
+          </a>
+          <h4>Micro SaaS Landing</h4>
+          <p>Conversion-optimized landing page with modern, futuristic styling.</p>
+          <div class="card-actions">
+            <a class="btn primary" href="https://example.com/micro-saas-landing" target="_blank" rel="noopener">Visit
+              site</a>
+            <a class="btn secondary" href="assets/micro-saas-landing.zip" download>Download</a>
+          </div>
+        </article>
+        <article class="card reveal">
+          <a class="card-media" href="https://example.com/dashboard-concept" target="_blank" rel="noopener">
+            <img class="poster" src="assets/card-poster.svg" alt="Dashboard preview" loading="lazy" />
+            <video class="preview" src="assets/project4.mp4" muted playsinline preload="metadata"></video>
+          </a>
+          <h4>Dashboard Concept</h4>
+          <p>Cards, charts, and responsive layout with focus on clarity and speed.</p>
+          <div class="card-actions">
+            <a class="btn primary" href="https://example.com/dashboard-concept" target="_blank" rel="noopener">Visit
+              site</a>
+            <a class="btn secondary" href="assets/dashboard-concept.zip" download>Download</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> BYTE SIZE. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
-
-
