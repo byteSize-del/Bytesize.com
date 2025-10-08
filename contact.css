@@ -1,8 +1,4 @@
 /* --- CONTACT FORM STYLES --- */
-
-/* Fetches the color variables from the main stylesheet */
-@import url('index.css');
-
 .contact-form {
     max-width: 800px;
     margin: 0 auto;
@@ -52,7 +48,7 @@
 }
 
 .contact-form .btn {
-    justify-self: start; /* Align button to the left */
+    justify-self: start;
 }
 
 .form-status {
