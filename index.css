@@ -25,7 +25,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* Header & Navigation */
+/* Header & Navigation ... (styles remain the same) */
 .branding {
     display: flex;
     align-items: center;
@@ -74,7 +74,8 @@ body {
     color: var(--accent-color);
 }
 
-/* Hero Section */
+
+/* Hero Section ... (styles remain the same) */
 .hero {
     display: flex;
     align-items: center;
@@ -158,6 +159,7 @@ body {
     box-shadow: 0 0 15px rgba(0, 246, 201, 0.4);
 }
 
+
 /* General Content Sections (for other pages) */
 .features, .about, .contact {
     padding: 80px 30px;
@@ -172,32 +174,66 @@ body {
     color: var(--heading-color);
 }
 
-/* Cards */
+/* --- CARD FIXES START HERE --- */
+
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Slightly larger min-width */
+    gap: 30px; /* Increased gap */
 }
 
 .card {
     background: var(--surface-color);
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    padding: 24px;
     transition: transform .25s ease, box-shadow .25s ease;
     display: flex;
     flex-direction: column;
+    overflow: hidden; /* Ensures content respects border-radius */
 }
+
 .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 246, 201, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 246, 201, 0.15);
 }
+
 .card::after { display: none; }
-.card h4 { color: var(--heading-color); margin-bottom: 12px; }
-.card p { color: var(--text-color); line-height: 1.6; }
-.card .btn { margin-top: auto; width: fit-content; }
-.card-actions { margin-top: auto; display: flex; gap: 10px; }
-.card-media { border-radius: 6px; overflow: hidden; margin-bottom: 16px; border: 1px solid var(--border-color); }
+
+.card-media {
+    width: 100%;
+    aspect-ratio: 16 / 10; /* A common aspect ratio for project images */
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows content to fill available space */
+}
+
+.card h4 {
+    color: var(--heading-color);
+    margin-bottom: 12px;
+    font-size: 1.25rem;
+}
+
+.card p {
+    color: var(--text-color);
+    line-height: 1.6;
+    flex-grow: 1; /* Pushes actions down */
+    margin-bottom: 24px;
+}
+
+.card-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: auto; /* Pushes to the bottom */
+}
+
+/* --- CARD FIXES END HERE --- */
+
 
 /* Contact Form */
 .contact-form {
