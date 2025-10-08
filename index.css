@@ -1,0 +1,433 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: radial-gradient(1000px 600px at 50% -200px, rgba(142, 148, 251, 0.25), transparent),
+        radial-gradient(800px 400px at 100% 0, rgba(78, 84, 200, 0.25), transparent),
+        #0f1117;
+    color: #e6e6e6;
+    min-height: 100dvh;
+}
+
+:root {
+    --primary: #8f94fb;
+    --primary-2: #4e54c8;
+    --muted: #a5adcb;
+    --bg: #0f1117;
+    --surface: #141824;
+    --card: #171b28;
+    --border: #2a2f3e;
+    --glow: 0 0 40px rgba(143, 148, 251, 0.35);
+}
+
+.title {
+    /* Absolutely center the title within the header/branding container */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    text-align: center;
+}
+
+.title h1 {
+    /* Attractive, bold, and centered */
+    margin: 0;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background: linear-gradient(90deg, #4e54c8, #8f94fb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* gradient text */
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    /* Keep logo pinned to the left */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 12px;
+}
+
+.logo img {
+    /* remove large left offset and top margin; add small right gap */
+    margin: 0 12px 0 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+/* If your HTML wraps logo + title in a header/branding container, this will center them nicely */
+.header,
+.branding {
+    /* Positioning context for the absolutely centered title */
+    position: relative;
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 16px;
+}
+
+.navigation a {
+    color: #f0f3ff;
+    text-decoration: none;
+    padding: 10px 14px;
+    font-size: 15px;
+    border-radius: 8px;
+    transition: background .2s ease, color .2s ease, box-shadow .2s ease;
+}
+
+.navigation a:hover {
+    background: linear-gradient(90deg, rgba(78, 84, 200, .3), rgba(143, 148, 251, .25));
+    box-shadow: var(--glow);
+}
+
+/* Header / Branding */
+.branding {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+}
+
+.nav-toggle {
+    margin-left: auto;
+    width: 40px;
+    height: 40px;
+    display: none;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #e6e6e6;
+    margin: 5px auto;
+    border-radius: 2px;
+}
+
+/* Hero */
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 64px 16px;
+}
+
+.hero-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: clamp(28px, 5vw, 56px);
+    line-height: 1.1;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 700px;
+    margin: 0 auto 20px;
+}
+
+.cta {
+    display: inline-flex;
+    gap: 12px;
+}
+
+.btn {
+    padding: 10px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid var(--border);
+}
+
+.btn.primary {
+    background: linear-gradient(90deg, var(--primary-2), var(--primary));
+    color: #0f1117;
+    box-shadow: var(--glow);
+}
+
+.btn.secondary {
+    background: transparent;
+    color: #f0f3ff;
+}
+
+.btn:hover {
+    filter: brightness(1.05);
+}
+
+.grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(closest-side, black, transparent 80%);
+    pointer-events: none;
+}
+
+/* Animated gradient rings */
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: .5;
+    pointer-events: none;
+}
+
+.hero::before {
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle at 30% 30%, var(--primary), transparent 60%);
+    top: -120px;
+    left: -80px;
+    animation: floaty 10s ease-in-out infinite;
+}
+
+.hero::after {
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle at 70% 40%, var(--primary-2), transparent 60%);
+    bottom: -120px;
+    right: -60px;
+    animation: floaty 12s ease-in-out infinite reverse;
+}
+
+@keyframes floaty {
+
+    0%,
+    100% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(-10px)
+    }
+}
+
+/* Features */
+.features {
+    padding: 56px 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 24px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.card {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    transition: transform .25s ease, box-shadow .25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 14px;
+    background: linear-gradient(90deg, rgba(78, 84, 200, .35), rgba(143, 148, 251, .35));
+    opacity: 0;
+    transition: opacity .25s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.card>* {
+    position: relative;
+    z-index: 1;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--glow);
+}
+
+.card:hover::after {
+    opacity: 1;
+}
+
+/* Card content spacing to avoid overlap */
+.card h4 {
+    margin: 0 0 8px;
+}
+
+.card p {
+    margin: 0 0 12px;
+    line-height: 1.5;
+}
+
+.card .btn {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 6px;
+}
+
+/* Pulsating title glow */
+.title h1 {
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 8px rgba(143, 148, 251, .35)
+    }
+
+    50% {
+        text-shadow: 0 0 16px rgba(78, 84, 200, .5)
+    }
+}
+
+/* About */
+.about {
+    padding: 56px 16px;
+}
+
+.about-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--muted);
+}
+
+/* Contact */
+.contact {
+    padding: 56px 16px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact-form {
+    display: grid;
+    gap: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+}
+
+.contact-form .row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.contact-form label span {
+    display: block;
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 6px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    background: #0f1320;
+    color: #e9edff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: 2px solid var(--primary);
+}
+
+.form-status {
+    min-height: 20px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* Footer */
+.footer {
+    padding: 28px 16px;
+    text-align: center;
+    color: var(--muted);
+}
+
+/* Reveal on view */
+.reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    .navigation {
+        display: none;
+    }
+
+    .navigation.open {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .branding {
+        padding-right: 56px;
+    }
+
+    .title {
+        position: static;
+        transform: none;
+        text-align: center;
+        width: 100%;
+    }
+}

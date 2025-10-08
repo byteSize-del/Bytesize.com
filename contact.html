@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact — BYTE SIZE</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+    <header class="branding">
+        <a class="logo" href="index.html#home" aria-label="Home">
+            <img src="assets/logo.svg" alt="Logo" />
+        </a>
+        <div class="title">
+            <h1>BYTE SIZE</h1>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <nav class="navigation" id="nav">
+        <a href="index.html#home">Home</a>
+        <a href="features.html">Features</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+
+    <main>
+        <section class="contact">
+            <h2 class="section-title reveal">Contact</h2>
+            <form class="contact-form reveal" id="contactForm"
+                data-endpoint="https://hook.eu2.make.com/4b5eqlucms6466vhip0rn368konvnkla" data-format="form">
+                <div class="row">
+                    <label>
+                        <span>Name</span>
+                        <input type="text" name="name" placeholder="Your name" required />
+                    </label>
+                    <label>
+                        <span>Email</span>
+                        <input type="email" name="email" placeholder="you@example.com" required />
+                    </label>
+                </div>
+                <label>
+                    <span>Message</span>
+                    <textarea name="message" rows="4" placeholder="Tell us more..." required></textarea>
+                </label>
+                <!-- Honeypot field to reduce spam (leave empty) -->
+                <label class="hp-field" aria-hidden="true" tabindex="-1" style="display:none;">
+                    <span>Website</span>
+                    <input type="text" name="website" autocomplete="off" />
+                </label>
+                <button type="submit" class="btn primary">Send</button>
+                <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+                <small style="color: var(--muted);">By submitting, you consent to be contacted about your
+                    inquiry.</small>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© <span id="year"></span> BYTE SIZE. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
