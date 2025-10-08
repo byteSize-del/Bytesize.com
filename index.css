@@ -244,7 +244,7 @@ body {
 .cards {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+    gap: 24px; /* a touch more space */
 }
 
 .card {
@@ -256,7 +256,7 @@ body {
     transition: transform .25s ease, box-shadow .25s ease;
     display: flex;
     flex-direction: column;
-    min-height: 320px; /* taller cards */
+    min-height: 380px; /* a bit taller */
 }
 
 .card::after {
@@ -299,6 +299,12 @@ body {
     display: inline-flex;
     align-items: center;
     margin-top: 6px;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: auto; /* push actions to bottom for consistent height */
 }
 
 /* Pulsating title glow */
@@ -403,7 +409,7 @@ body {
 .card-media {
     position: relative;
     width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 4/3; /* taller media area */
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 12px;
