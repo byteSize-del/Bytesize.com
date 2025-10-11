@@ -40,8 +40,8 @@ body {
     backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
-    /* FIX: Center the navigation container */
-    justify-content: center;
+    justify-content: space-between;
+    /* IMPROVEMENT: Increased padding from 50px to 80px */
     padding: 0 80px; 
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
@@ -53,8 +53,6 @@ body {
     font-weight: 700;
     text-decoration: none;
     letter-spacing: -0.5px;
-    /* Temporarily hide logo on large screens for centering */
-    display: none; 
 }
 
 .logo span {
@@ -65,21 +63,19 @@ body {
     color: var(--text-color);
     font-size: 14px;
     opacity: 0.7;
-    /* Temporarily hide title on large screens for centering */
-    display: none;
 }
 
 .navigation {
     display: flex;
+    /* IMPROVEMENT: Increased gap between links from 30px to 40px */
     gap: 40px; 
     align-items: center;
-    /* Center the navigation menu itself (takes effect if it's not full width) */
-    margin: 0 auto;
 }
 
 .navigation a {
     color: var(--text-color);
     text-decoration: none;
+    /* Retained fix for large screen text size */
     font-size: 18px !important; 
     transition: color 0.3s ease;
     font-weight: 500;
@@ -294,14 +290,6 @@ section h2, .section-title {
     .card p {
         font-size: 14px;
     }
-    
-    /* Revert to space-between layout for tablet screens */
-    .branding {
-        justify-content: space-between;
-    }
-    .logo, .title {
-        display: block;
-    }
 }
 
 /* Tablet and below (850px) */
@@ -311,15 +299,9 @@ section h2, .section-title {
     }
     .branding {
         padding: 0 30px;
-        /* Revert to space-between for mobile layout */
-        justify-content: space-between;
-    }
-    /* Show logo and title for mobile */
-    .logo, .title {
-        display: block;
     }
     .title {
-        display: none; /* Keep the title hidden on small screens */
+        display: none;
     }
     .navigation {
         display: none;
