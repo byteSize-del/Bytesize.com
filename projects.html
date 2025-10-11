@@ -29,36 +29,59 @@
             gap: 1.5rem;
             padding: 0.5rem;
             margin: 0 auto;
+            max-width: 100%;
         }
         
         .card {
             margin: 0;
             padding: 0;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
         }
         
         .card-media {
             width: 100%;
             height: auto;
+            aspect-ratio: 16/9;
+            object-fit: cover;
             display: block;
         }
         
         .card-content {
             padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .card-actions {
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
-            margin-top: 1rem;
-            padding: 0;
+            margin-top: auto;
+            padding-top: 1rem;
         }
         
         .card-actions .btn {
             width: 100%;
             text-align: center;
             padding: 0.75rem 1rem;
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
         
         /* Tablet Styles - 768px and up */
@@ -110,6 +133,10 @@
                 grid-template-columns: repeat(3, 1fr);
                 gap: 2.5rem;
                 padding: 1.5rem;
+            }
+            
+            .card {
+                max-width: 100%;
             }
             
             .card-content {
@@ -172,15 +199,26 @@
                 font-size: 0.875rem;
             }
         }
+        
+        /* Ensure equal card heights in grid */
+        @media (min-width: 768px) {
+            .cards {
+                align-items: stretch;
+            }
+            
+            .card {
+                height: 100%;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="grid-bg"></div>
     <header class="header">
         <div class="header-content">
-            <a class="logo-link" href="index.html" aria-label="BYTE SIZE Home">
+            <a href="index.html" class="logo-link" aria-label="BYTE SIZE Home">
                 <img src="logo.svg" alt="BYTE SIZE logo" />
-                <h1>BYTE SIZE</h1>
+                BYTE SIZE
             </a>
             <nav class="navigation" id="nav">
                 <a href="index.html">Home</a>
@@ -200,57 +238,57 @@
         <h2 class="section-title">Projects</h2>
         <div class="cards">
             <article class="card">
-                <img class="card-media" src="3dlogin.png" alt="3D Login Form preview" loading="lazy" />
+                <img src="3dlogin.png" alt="3D Login Form preview" class="card-media" loading="lazy" />
                 <div class="card-content">
-                    <h4>3D LOGIN FORM</h4>
+                    <h3>3D LOGIN FORM</h3>
                     <p>A 3D LOGIN FORM with smooth scroll and reveal animations.</p>
                     <div class="card-actions">
-                        <a class="btn primary" href="https://bytesize-del.github.io/CUBE-LOGIN-FORM/" target="_blank" rel="noopener">Visit site</a>
-                        <a class="btn secondary" href="3Dlofin form.zip" download>Download</a>
+                        <a href="https://bytesize-del.github.io/CUBE-LOGIN-FORM/" class="btn primary" target="_blank" rel="noopener">Visit site</a>
+                        <a href="3Dlofin form.zip" class="btn secondary" download>Download</a>
                     </div>
                 </div>
             </article>
             <article class="card">
-                <img class="card-media" src="elbutton.png" alt="Electric Button preview" loading="lazy" />
+                <img src="elbutton.png" alt="Electric Button preview" class="card-media" loading="lazy" />
                 <div class="card-content">
-                    <h4>Electric Button</h4>
+                    <h3>Electric Button</h3>
                     <p>A clean, example of html and css fusion.</p>
                     <div class="card-actions">
-                        <a class="btn primary" href="https://bytesize-del.github.io/BUTTON/" target="_blank" rel="noopener">Visit site</a>
-                        <a class="btn secondary" href="elbutton.zip" download>Download</a>
+                        <a href="https://bytesize-del.github.io/BUTTON/" class="btn primary" target="_blank" rel="noopener">Visit site</a>
+                        <a href="elbutton.zip" class="btn secondary" download>Download</a>
                     </div>
                 </div>
             </article>
             <article class="card">
-                <img class="card-media" src="electric cards.png" alt="Electric Cards preview" loading="lazy" />
+                <img src="electric cards.png" alt="Electric Cards preview" class="card-media" loading="lazy" />
                 <div class="card-content">
-                    <h4>Electric cards</h4>
+                    <h3>Electric cards</h3>
                     <p>Conversion-optimized Cards with modern, futuristic styling.</p>
                     <div class="card-actions">
-                        <a class="btn primary" href="https://bytesize-del.github.io/Lightning-cards/" target="_blank" rel="noopener">Visit site</a>
-                        <a class="btn secondary" href="elecrtic cards.zip" download>Download</a>
+                        <a href="https://bytesize-del.github.io/Lightning-cards/" class="btn primary" target="_blank" rel="noopener">Visit site</a>
+                        <a href="elecrtic cards.zip" class="btn secondary" download>Download</a>
                     </div>
                 </div>
             </article>
             <article class="card">
-                <img class="card-media" src="movingform (2).png" alt="Moving Form preview" loading="lazy" />
+                <img src="movingform (2).png" alt="Moving Form preview" class="card-media" loading="lazy" />
                 <div class="card-content">
-                    <h4>Moving Form</h4>
+                    <h3>Moving Form</h3>
                     <p>HTML Form, an responsive layout with focus on clarity and speed.</p>
                     <div class="card-actions">
-                        <a class="btn primary" href="https://bytesize-del.github.io/LOGIN-FORM-3D/" target="_blank" rel="noopener">Visit site</a>
-                        <a class="btn secondary" href="movingform.zip" download>Download</a>
+                        <a href="https://bytesize-del.github.io/LOGIN-FORM-3D/" class="btn primary" target="_blank" rel="noopener">Visit site</a>
+                        <a href="movingform.zip" class="btn secondary" download>Download</a>
                     </div>
                 </div>
             </article>
             <article class="card">
-                <img class="card-media" src="ghosht.png" alt="Ghost toggle preview" loading="lazy" />
+                <img src="ghosht.png" alt="Ghost toggle preview" class="card-media" loading="lazy" />
                 <div class="card-content">
-                    <h4>Ghost toggle</h4>
+                    <h3>Ghost toggle</h3>
                     <p>HTML Form, an responsive layout with focus on clarity and speed.</p>
                     <div class="card-actions">
-                        <a class="btn primary" href="https://bytesize-del.github.io/GHOSHT-TOGGL/" target="_blank" rel="noopener">Visit site</a>
-                        <a class="btn secondary" href="ghost.zip" download>Download</a>
+                        <a href="https://bytesize-del.github.io/GHOSHT-TOGGL/" class="btn primary" target="_blank" rel="noopener">Visit site</a>
+                        <a href="ghost.zip" class="btn secondary" download>Download</a>
                     </div>
                 </div>
             </article>
