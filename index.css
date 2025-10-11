@@ -41,7 +41,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 50px;
+    /* IMPROVEMENT: Increased padding from 50px to 80px */
+    padding: 0 80px; 
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
 }
@@ -66,14 +67,15 @@ body {
 
 .navigation {
     display: flex;
-    gap: 30px;
+    /* IMPROVEMENT: Increased gap between links from 30px to 40px */
+    gap: 40px; 
     align-items: center;
 }
 
 .navigation a {
     color: var(--text-color);
     text-decoration: none;
-    /* FINAL FIX: Set base font size to 18px for large screens, using !important for max specificity */
+    /* Retained fix for large screen text size */
     font-size: 18px !important; 
     transition: color 0.3s ease;
     font-weight: 500;
