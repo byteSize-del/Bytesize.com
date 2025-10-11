@@ -73,7 +73,6 @@ body {
 .navigation a {
     color: var(--text-color);
     text-decoration: none;
-    /* UPDATED: Increased base font size for desktops */
     font-size: 16px; 
     transition: color 0.3s ease;
     font-weight: 500;
@@ -157,12 +156,20 @@ section {
     padding: 120px 30px;
 }
 
+/* NEW: General container styling for pages like About and Features to ensure top spacing and center alignment */
+.page-content {
+    padding: 120px 30px; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-section h2 {
+/* UPDATED: Combined with .section-title class for pages like features/about/projects */
+section h2, .section-title { 
     font-size: clamp(36px, 5vw, 52px);
     color: var(--heading-color);
     margin-bottom: 70px;
@@ -239,10 +246,6 @@ section h2 {
     border-radius: 2px;
     transition: all 0.3s ease;
     margin-bottom: 5px;
-}
-
-.nav-toggle span:last-child {
-    margin-bottom: 0;
 }
 
 .nav-toggle[aria-expanded="true"] span:nth-child(1) {
