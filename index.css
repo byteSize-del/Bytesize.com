@@ -73,7 +73,8 @@ body {
 .navigation a {
     color: var(--text-color);
     text-decoration: none;
-    font-size: 16px; 
+    /* FIX: Set base font size to 16px for large screens, using !important as a failsafe */
+    font-size: 16px !important; 
     transition: color 0.3s ease;
     font-weight: 500;
 }
@@ -407,7 +408,7 @@ section h2, .section-title {
     }
     /* Adjusted font size for navigation on small mobile */
     .navigation a {
-        font-size: 14px;
+        font-size: 14px !important;
     }
 }
 
