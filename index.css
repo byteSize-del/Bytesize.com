@@ -73,7 +73,8 @@ body {
 .navigation a {
     color: var(--text-color);
     text-decoration: none;
-    font-size: 14px;
+    /* UPDATED: Increased base font size for desktops */
+    font-size: 16px; 
     transition: color 0.3s ease;
     font-weight: 500;
 }
@@ -266,10 +267,6 @@ section h2 {
     .card {
         padding: 40px 32px;
     }
-    /* NEW: Increase nav link font size for large screens */
-    .navigation a {
-        font-size: 16px; 
-    }
 }
 
 /* Medium screens (768px to 1199px) */
@@ -404,6 +401,10 @@ section h2 {
     .footer {
         padding: 40px 20px;
         font-size: 13px;
+    }
+    /* Adjusted font size for navigation on small mobile */
+    .navigation a {
+        font-size: 14px;
     }
 }
 
