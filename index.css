@@ -266,6 +266,10 @@ section h2 {
     .card {
         padding: 40px 32px;
     }
+    /* NEW: Increase nav link font size for large screens */
+    .navigation a {
+        font-size: 16px; 
+    }
 }
 
 /* Medium screens (768px to 1199px) */
@@ -341,7 +345,7 @@ section h2 {
         font-size: 14px;
     }
 
-    /* NEW: Prevents background scrolling when navigation is open */
+    /* Prevents background scrolling when navigation is open */
     body.nav-open {
         overflow: hidden;
     }
