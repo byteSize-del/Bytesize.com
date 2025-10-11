@@ -38,10 +38,13 @@
     if (target){
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // FIX: If the nav is open, close it and remove the body scroll lock.
+      // This specifically handles link clicks *inside* the open menu.
       if (nav && nav.classList.contains('open')) {
         nav.classList.remove('open');
-        // UPDATED: Remove 'nav-open' class from body when nav closes
-        document.body.classList.remove('nav-open'); 
+        document.body.classList.remove('nav-open');
+        // IMPORTANT: Manually update the toggle button state as well
+        if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
       }
     }
   });
