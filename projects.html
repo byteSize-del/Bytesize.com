@@ -1,37 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - BYTE SIZE</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="icon" href="logo.svg" type="image/svg+xml">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects — BYTE SIZE</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="logo.svg" type="image/svg+xml" />
+    <style>
+        /* Responsive Design Improvements for Projects Page */
+        
+        /* Mobile First Base Styles */
+        .page-content {
+            padding: 1rem;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+        
+        .section-title {
+            font-size: 1.75rem;
+            margin: 1.5rem 0;
+            padding: 0 0.5rem;
+            text-align: center;
+        }
+        
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            padding: 0.5rem;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+        
+        .card {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            background: #2a2a2a;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        
+        .card-media {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .card-content {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+        
+        .card-actions .btn {
+            width: 100%;
+            text-align: center;
+            padding: 0.75rem 1rem;
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        /* Tablet Styles - 768px and up */
+        @media (min-width: 768px) {
+            .page-content {
+                padding: 2rem;
+                max-width: 1200px;
+            }
+            
+            .section-title {
+                font-size: 2.25rem;
+                margin: 2rem 0;
+                padding: 0 1rem;
+            }
+            
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+                padding: 1rem;
+            }
+            
+            .card-content {
+                padding: 1.25rem;
+            }
+            
+            .card-actions {
+                flex-direction: row;
+                gap: 1rem;
+            }
+            
+            .card-actions .btn {
+                flex: 1;
+                padding: 0.875rem 1.25rem;
+            }
+        }
+        
+        /* Desktop Styles - 1024px and up */
+        @media (min-width: 1024px) {
+            .page-content {
+                padding: 3rem 2rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+                margin: 2.5rem 0;
+            }
+            
+            .cards {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2.5rem;
+                padding: 1.5rem;
+            }
+            
+            .card {
+                max-width: 100%;
+            }
+            
+            .card-content {
+                padding: 1.5rem;
+            }
+            
+            .card-actions .btn {
+                padding: 1rem 1.5rem;
+            }
+        }
+        
+        /* Large Desktop Styles - 1440px and up */
+        @media (min-width: 1440px) {
+            .page-content {
+                padding: 4rem 3rem;
+                max-width: 1400px;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+                margin: 3rem 0;
+            }
+            
+            .cards {
+                gap: 3rem;
+                padding: 2rem;
+            }
+            
+            .card-content {
+                padding: 2rem;
+            }
+        }
+        
+        /* Small Mobile Optimization - under 480px */
+        @media (max-width: 479px) {
+            .page-content {
+                padding: 0.75rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+                margin: 1rem 0;
+            }
+            
+            .cards {
+                gap: 1rem;
+                padding: 0.25rem;
+            }
+            
+            .card-content {
+                padding: 0.875rem;
+            }
+            
+            .card-actions {
+                gap: 0.5rem;
+            }
+            
+            .card-actions .btn {
+                padding: 0.625rem 0.875rem;
+                font-size: 0.875rem;
+            }
+        }
+        
+        /* Ensure equal card heights in grid */
+        @media (min-width: 768px) {
+            .cards {
+                align-items: stretch;
+            }
+            
+            .card {
+                height: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="logo.svg" alt="ByteSize Logo">
-            <a href="index.html">BYTE SIZE</a>
+    <div class="grid-bg"></div>
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo-link" aria-label="BYTE SIZE Home">
+                <img src="logo.svg" alt="BYTE SIZE logo" />
+                <span>BYTE SIZE</span>
+            </a>
+            <nav class="navigation" id="nav">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="projects.html" aria-current="page">Projects</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="projects.html" class="active">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-
+    </header>
     <main class="page-content">
-        <section class="projects-section">
-            <h1 class="section-title">Our Projects</h1>
-            <div class="cards">
-            </div>
-        </section>
+        <h2 class="section-title">Projects</h2>
+        <div class="cards">
+            <article class="card">
+                <img src="3dlogin.png" alt="3D Login Form preview" class="card-media" loading="lazy" />
+                <div class="card-content">
+                    <h3>3D LOGIN FORM</h3>
+                    <p>A 3D LOGIN FORM with smooth scroll and reveal animations.</p>
+                    <div class="card-actions">
+                        <a href="https://bytesize-del.github.io/CUBE-LOGIN-FORM/" class="btn primary" target="_blank" rel="noopener">Visit site</a>
+                        <a href="3Dlofin form.zip" class="btn secondary" download>Download</a>
+                    </div>
+                </div>
+            </article>
+            <article class="card">
+                <img src="elbutton.png" alt="Electric Button preview" class="card-media" loading="lazy" />
+                <div class="card-content">
+                    <h3>Electric Button</h3>
+                    <p>A clean, example of html and css fusion.</p>
+                    <div class="card-actions">
+                        <a href="https://bytesize-del.github.io/BUTTON/" class="btn primary" target="_blank" rel="noopener">Visit site</a>
+                        <a href="elbutton.zip" class="btn secondary" download>Download</a>
+                    </div>
+                </div>
+            </article>
+            <article class="card">
+                <img src="electric cards.png" alt="Electric Cards preview" class="card-media" loading="lazy" />
+                <div class="card-content">
+                    <h3>Electric cards</h3>
+                    <p>Conversion-optimized Cards with modern, futuristic styling.</p>
+                    <div class="card-actions">
+                        <a href="https://bytesize-del.github.io/Lightning-cards/" class="btn primary" target="_blank" rel="noopener">Visit site</a>
+                        <a href="elecrtic cards.zip" class="btn secondary" download>Download</a>
+                    </div>
+                </div>
+            </article>
+            <article class="card">
+                <img src="movingform (2).png" alt="Moving Form preview" class="card-media" loading="lazy" />
+                <div class="card-content">
+                    <h3>Moving Form</h3>
+                    <p>HTML Form, an responsive layout with focus on clarity and speed.</p>
+                    <div class="card-actions">
+                        <a href="https://bytesize-del.github.io/LOGIN-FORM-3D/" class="btn primary" target="_blank" rel="noopener">Visit site</a>
+                        <a href="movingform.zip" class="btn secondary" download>Download</a>
+                    </div>
+                </div>
+            </article>
+            <article class="card">
+                <img src="ghosht.png" alt="Ghost toggle preview" class="card-media" loading="lazy" />
+                <div class="card-content">
+                    <h3>Ghost toggle</h3>
+                    <p>HTML Form, an responsive layout with focus on clarity and speed.</p>
+                    <div class="card-actions">
+                        <a href="https://bytesize-del.github.io/GHOSHT-TOGGL/" class="btn primary" target="_blank" rel="noopener">Visit site</a>
+                        <a href="ghost.zip" class="btn secondary" download>Download</a>
+                    </div>
+                </div>
+            </article>
+        </div>
     </main>
-
-    <footer>
-        <p>&copy; 2024 ByteSize. All rights reserved.</p>
+    <footer class="footer">
+        <p>© <span id="year"></span> BYTE SIZE. All rights reserved.</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
