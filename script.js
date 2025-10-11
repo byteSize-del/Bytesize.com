@@ -13,6 +13,8 @@
     navToggle.addEventListener('click', () => {
       const open = nav.classList.toggle('open');
       navToggle.setAttribute('aria-expanded', String(open));
+      // NEW LINE: Toggle 'nav-open' class on the body to disable background scrolling
+      document.body.classList.toggle('nav-open', open); 
     });
   }
 
@@ -36,7 +38,11 @@
     if (target){
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (nav && nav.classList.contains('open')) nav.classList.remove('open');
+      if (nav && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        // UPDATED: Remove 'nav-open' class from body when nav closes
+        document.body.classList.remove('nav-open'); 
+      }
     }
   });
 
