@@ -4,7 +4,7 @@
     --page-bg: #000000;
     --heading-color: #FFFFFF;
     --text-color: #bfeee8;
-    --accent-color: #00F6C9;
+    --accent-color: #00F6C9; /* Neon Cyan */
     --accent-text-color: #00221A;
     --surface-color: #111111;
     --border-color: #333333;
@@ -29,7 +29,7 @@ body {
     line-height: 1.7;
 }
 
-/* --- CONTACT.HTML STYLE HEADER --- */
+/* --- HEADER / BRANDING (Desktop Centered, Mobile Edge-Aligned) --- */
 .branding {
     position: fixed;
     top: 0;
@@ -40,11 +40,15 @@ body {
     backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    /* IMPROVEMENT: Increased padding from 50px to 80px */
-    padding: 0 80px; 
+    /* Centered on Desktop, changed back to space-between on tablet/mobile */
+    justify-content: center; 
+    padding: 0 50px; 
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
+    
+    /* NEW EFFECT: Continuous, subtle neon border glow */
+    box-shadow: 0 0 10px rgba(0, 246, 201, 0.2); 
+    animation: pulseBorder 4s infinite alternate;
 }
 
 .logo {
@@ -53,6 +57,8 @@ body {
     font-weight: 700;
     text-decoration: none;
     letter-spacing: -0.5px;
+    /* Hidden on large screens for centering effect */
+    display: none; 
 }
 
 .logo span {
@@ -63,26 +69,32 @@ body {
     color: var(--text-color);
     font-size: 14px;
     opacity: 0.7;
+    /* Hidden on large screens for centering effect */
+    display: none;
 }
 
 .navigation {
     display: flex;
-    /* IMPROVEMENT: Increased gap between links from 30px to 40px */
     gap: 40px; 
     align-items: center;
+    margin: 0 auto;
 }
 
 .navigation a {
     color: var(--text-color);
     text-decoration: none;
-    /* Retained fix for large screen text size */
     font-size: 18px !important; 
-    transition: color 0.3s ease;
+    /* IMPROVEMENT: Added transition for glow effect */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
     font-weight: 500;
+    /* NEW EFFECT: Subtle initial text glow */
+    text-shadow: 0 0 5px rgba(0, 246, 201, 0.1); 
 }
 
 .navigation a:hover {
     color: var(--accent-color);
+    /* NEW EFFECT: Stronger glow on hover */
+    text-shadow: 0 0 10px var(--accent-color);
 }
 
 /* --- HERO SECTION --- */
@@ -159,7 +171,7 @@ section {
     padding: 120px 30px;
 }
 
-/* NEW: General container styling for pages like About and Features to ensure top spacing and center alignment */
+/* General container styling for pages like About and Features to ensure top spacing and center alignment */
 .page-content {
     padding: 120px 30px; 
     max-width: 1200px;
@@ -171,7 +183,7 @@ section {
     margin: 0 auto;
 }
 
-/* UPDATED: Combined with .section-title class for pages like features/about/projects */
+/* Combined with .section-title class for pages like features/about/projects */
 section h2, .section-title { 
     font-size: clamp(36px, 5vw, 52px);
     color: var(--heading-color);
@@ -290,6 +302,14 @@ section h2, .section-title {
     .card p {
         font-size: 14px;
     }
+    
+    /* Revert to space-between layout for tablet screens */
+    .branding {
+        justify-content: space-between;
+    }
+    .logo, .title {
+        display: block;
+    }
 }
 
 /* Tablet and below (850px) */
@@ -299,9 +319,15 @@ section h2, .section-title {
     }
     .branding {
         padding: 0 30px;
+        /* Revert to space-between for mobile layout */
+        justify-content: space-between;
+    }
+    /* Show logo and title for mobile */
+    .logo, .title {
+        display: block;
     }
     .title {
-        display: none;
+        display: none; /* Keep the title hidden on small screens */
     }
     .navigation {
         display: none;
@@ -466,5 +492,15 @@ section h2, .section-title {
     }
     to {
         background-position: -50px -50px;
+    }
+}
+
+/* NEW KEYFRAME: Subtle animation for the header border glow */
+@keyframes pulseBorder {
+    from {
+        box-shadow: 0 0 10px rgba(0, 246, 201, 0.2), 0 0 0 rgba(0, 246, 201, 0);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(0, 246, 201, 0.4), 0 0 10px rgba(0, 246, 201, 0.1);
     }
 }
