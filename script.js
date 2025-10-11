@@ -38,8 +38,8 @@
     if (target){
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // FIX: If the nav is open, close it and remove the body scroll lock.
-      // This specifically handles link clicks *inside* the open menu.
+      // FIX: If the nav is open and a link is clicked, close it, remove body scroll lock,
+      // and manually reset the toggle icon to the hamburger (3 lines).
       if (nav && nav.classList.contains('open')) {
         nav.classList.remove('open');
         document.body.classList.remove('nav-open');
